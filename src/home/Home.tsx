@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const Home = () => {
   return (
-    <div className="bg-[#f2f9f7] h-171 flex">
+    <div className="bg-[#f2f9f7] h-168 flex">
       <div className="w-1/2 ml-10 flex flex-col">
         <p className="font-bold text-2xl md:text-6xl pt-3">
           Crea productos personalizados online
