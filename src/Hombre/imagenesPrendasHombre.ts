@@ -22,6 +22,10 @@ import sudadera1 from "../assets/sudadera1.jpeg";
 import sudadera2 from "../assets/sudadera2.jpeg";
 import sudadera3 from "../assets/sudadera3.jpeg";
 import sudadera4 from "../assets/sudadera4.jpeg";
+import jogger1 from "../assets/jogger1.jpeg";
+import jogger2 from "../assets/jogger2.jpeg";
+import jogger3 from "../assets/jogger3.jpeg";
+import jogger4 from "../assets/jogger4.jpeg";
 
 export const imagenes = [
   //Camisetas
@@ -204,4 +208,33 @@ export const imagenes = [
     precio: "$20.000",
   },
 
+  //Joggers
+  {
+    id: 25,
+    imagen: jogger1,
+    titulo: "Jogger simple",
+    descripcion: "Jogger beige",
+    precio: "$20.000",
+  },
+  {
+    id: 26,
+    imagen: jogger2,
+    titulo: "Jogger simple",
+    descripcion: "Jogger verde bosque",
+    precio: "$20.000",
+  },
+  {
+    id: 27,
+    imagen: jogger3,
+    titulo: "Jogger simple",
+    descripcion: "jogger negro",
+    precio: "$20.000",
+  },
+  {
+    id: 28,
+    imagen: jogger4,
+    titulo: "Jogger simple",
+    descripcion: "Jogger rojo",
+    precio: "$20.000",
+  },
 ];
