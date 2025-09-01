@@ -1,7 +1,7 @@
 export const tallas: string[] = ["S", "M", "L", "XL"];
 
 export const colores: string[] = [
-  "#FF6B6B", // rojo coral
+  "#FFFFFF",
   "#FF8E72", // durazno
   "#FFB347", // naranja suave
   "#FFD93D", // amarillo pastel

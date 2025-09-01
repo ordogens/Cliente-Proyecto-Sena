@@ -8,6 +8,7 @@ const imagenes: string[] = [camisa, atras, adelante];
 
 export const Prendas = () => {
   const [selectedImage, setSelectedImage] = useState<string>(imagenes[0]);
+  const [selectedColor, setSelectedColor] = useState<string>(colores[0]);
 
   return (
     <div className="bg-[#f2f9f7] h-168 flex gap-10">
@@ -35,7 +36,7 @@ export const Prendas = () => {
           ))}
         </article>
 
-        <article className="w-100 ">
+        <article className="w-100 h-130 rounded-2xl" style={{ backgroundColor: selectedColor }}>
           <img src={selectedImage} alt="selected" className="rounded-lg" />
         </article>
       </section>
@@ -45,9 +46,10 @@ export const Prendas = () => {
           {/* colores */}
         <article className="w-75 h-32  flex flex-wrap gap-1 ">
           {colores.map((color, idx) => (
-            <div
+            <button
               key={idx}
               style={{ backgroundColor: color }}
+               onClick={() => setSelectedColor(color)}
               className="w-7 h-7 rounded cursor-pointer border"
             />
           ))}
