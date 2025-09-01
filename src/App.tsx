@@ -3,7 +3,7 @@ import { Header } from "./Header";
 import { Home } from "./home/Home";
 import { Catalogo } from "./catalogo/Catalogo";
 import {Hombre} from './Hombre/Hombre'
-// import {Mujer} from './Mujer/Mujer'
+import {Prendas} from './visualizadorPrendas/Prendas'
 
 export const App = () => {
   return (
@@ -14,6 +14,8 @@ export const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/catalogo/hombre" element={<Hombre />} />
+        <Route path="prendas" element={<Prendas />} />
+
       </Routes>
       </BrowserRouter>     
     </div>
