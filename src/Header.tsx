@@ -10,7 +10,7 @@ export const Header = () => {
       <NavLink to="/">
         <h1 className="font-bold text-2xl pl-3">CraftYourStyle</h1>
       </NavLink>
-      <div className="flex pr-3 ">
+      <div className="flex pr-3">
         <ul className="flex gap-x-2 ">
           <li>{/* <NavLink to="/Hombre">Hombre</NavLink> */}</li>
           <li>{/* <NavLink to="/Mujer">Mujer</NavLink> */}</li>
@@ -20,7 +20,7 @@ export const Header = () => {
             </li>
             <li className="cursor-pointer">
               <ShoppingCart />
-              <div className="absolute -top-0  text-primary-foreground px-2 py-0 rounded-full text-sm font-medium shadow-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600">
+              <div className="relative bottom-6 left-4 size-2.5 rounded-full text-[.5rem] flex items-center justify-center font-medium shadow-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600">
                 3
               </div>
             </li>
