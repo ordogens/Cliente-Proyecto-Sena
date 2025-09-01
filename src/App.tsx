@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./Header";
 import { Home } from "./home/Home";
 import { Catalogo } from "./catalogo/Catalogo";
-// import {Hombre} from './Hombre/Hombre'
+import {Hombre} from './Hombre/Hombre'
 // import {Mujer} from './Mujer/Mujer'
 
 export const App = () => {
@@ -13,7 +13,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
-        {/* <Route path="/Mujer" element={<Mujer />} /> */}
+        <Route path="/catalogo/hombre" element={<Hombre />} />
       </Routes>
       </BrowserRouter>     
     </div>
