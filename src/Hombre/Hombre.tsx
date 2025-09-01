@@ -5,9 +5,9 @@ export const Hombre = () => {
     <div className=" h-171 bg-[#f2f9f7] ">
       <h1 className="font-mono text-[30px] text-center">Ropa de hombre</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 gap-6 bg-[#f2f9f7]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
         {imagenes.map((img) => (
-          <div key={img.id} className="flex m-4 justify-center">
+          <div key={img.id} className="flex mb-6 justify-center">
             <div className="flex flex-col w-60">
               <div className="overflow-hidden rounded-lg shadow-md">
                 <img
