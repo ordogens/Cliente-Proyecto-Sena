@@ -17,74 +17,86 @@ export const Hombre = () => {
       id: 1,
       imagen: camiseta1,
       titulo: "Camiseta simple",
-      descripcion: "Camiseta negra"
+      descripcion: "Camiseta negra",
+      precio: "$20.000",
     },
     {
       id: 2,
       imagen: camiseta2,
       titulo: "Camiseta simple",
-      descripcion: "Camiseta blanca"
+      descripcion: "Camiseta blanca",
+      precio: "$20.000",
     },
     {
       id: 3,
       imagen: camiseta3,
       titulo: "Camiseta simple",
-      descripcion: "Camiseta gris"
+      descripcion: "Camiseta gris",
+      precio: "$20.000",
     },
     {
       id: 4,
       imagen: camiseta4,
       titulo: "Camiseta con estampado",
-      descripcion: "Camiseta rosa claro con puntos blancos, morados y cafes"
+      descripcion: "Camiseta rosa claro con puntos blancos, morados y cafes",
+      precio: "$20.000",
     },
     {
       id: 5,
       imagen: camisa1,
       titulo: "Camisa simple",
-      descripcion: ""
+      descripcion: "Camisa verde claro manga corta",
+      precio: "$20.000",
     },
     {
       id: 6,
       imagen: camisa2,
       titulo: "Camisa simple",
-      descripcion: ""
+      descripcion: "Camisa vino tinto manga larga",
+      precio: "$20.000",
     },
     {
       id: 7,
       imagen: camisa3,
-      titulo: "Camisa simple",
-      descripcion: ""
+      titulo: "Camisa con estampado",
+      descripcion: "Camisa blanca manga larga con puño azul con puntos blancos",
+      precio: "$20.000",
     },
     {
       id: 8,
       imagen: camisa4,
       titulo: "Camisa simple",
-      descripcion: ""
+      descripcion: "Camisa gris manga larga",
+      precio: "$20.000",
     },
     {
       id: 9,
       imagen: camibuso1,
       titulo: "Camibuso simple",
-      descripcion: ""
+      descripcion: "Camibuso beige claro con mangas con lineas negras",
+      precio: "$20.000",
     },
     {
       id: 10,
       imagen: camibuso2,
       titulo: "Camibuso simple",
-      descripcion: ""
+      descripcion: "Camibuso negro con botones beige y rojo",
+      precio: "$20.000",
     },
     {
       id: 11,
       imagen: camibuso3,
       titulo: "Camibuso simple",
-      descripcion: ""
+      descripcion: "Camibuso gris",
+      precio: "$20.000",
     },
     {
       id: 12,
       imagen: camibuso4,
       titulo: "Camibuso simple",
-      descripcion: ""
-    }
+      descripcion: "Camibuso amarillo claro",
+      precio: "$20.000",
+    },
   ];
 
   return (
@@ -94,11 +106,18 @@ export const Hombre = () => {
       <div className="flex flex-wrap justify-center mt-6">
         {imagenes.map((img) => (
           <div key={img.id} className="flex m-4">
-            <img
-              src={img.imagen}
-              alt={`Camisa ${img.id}`}
-              className="w-60 h-80 object-cover rounded-lg shadow-md"
-            />
+            <div className="flex flex-col w-60">
+              <img
+                src={img.imagen}
+                alt={`Camisa ${img.id}`}
+                className="w-60 h-80 object-cover rounded-lg shadow-md"
+              />
+              <div className="flex justify-between">
+                <p>{img.titulo}</p>
+                <p>{img.precio}</p>
+              </div>
+              <p className="">{img.descripcion}</p>
+            </div>
           </div>
         ))}
       </div>
