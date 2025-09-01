@@ -37,7 +37,7 @@ export const Home = () => {
           className="w-full h-full object-cover rounded-2xl shadow-2xl"
         />
         <div className="absolute -top-4 -right-4 text-primary-foreground px-4 py-2 rounded-full text-sm font-medium shadow-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600">
-          ¡Nuevo!
+          <NavLink to= "/prendas">¡Nuevo!</NavLink>
         </div>
       </div>
     </div>
