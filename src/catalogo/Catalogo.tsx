@@ -31,9 +31,7 @@ export const Catalogo = () => {
 
   return (
     <div className="bg-[#f2f9f7] h-171 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-8 pt-6">
-        Catálogo de <span className="text-green-500">productos</span>
-      </h1>
+      <h1 className="text-4xl font-bold mb-8 pt-6">Catálogo de <span className="text-green-500">productos</span></h1>
 
       {/* Grid responsivo */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

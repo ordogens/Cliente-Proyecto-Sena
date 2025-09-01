@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const Home = () => {
   return (
-    <div className="bg-[#f2f9f7] h-171 flex">
+    <div className="bg-[#f2f9f7] h-168 flex">
       <div className="w-1/2 ml-10 flex flex-col">
         <p className="font-bold text-2xl md:text-6xl pt-3">
           Crea productos personalizados online
@@ -37,7 +37,7 @@ export const Home = () => {
           className="w-full h-full object-cover rounded-2xl shadow-2xl"
         />
         <div className="absolute -top-4 -right-4 text-primary-foreground px-4 py-2 rounded-full text-sm font-medium shadow-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600">
-          ¡Nuevo!
+          <NavLink to= "/prendas">¡Nuevo!</NavLink>
         </div>
       </div>
     </div>
