@@ -116,7 +116,7 @@ export const Hombre = () => {
                 <p>{img.titulo}</p>
                 <p>{img.precio}</p>
               </div>
-              <p className="">{img.descripcion}</p>
+              <p className="text-sm text-gray-600 break-words">{img.descripcion}</p>
             </div>
           </div>
         ))}
