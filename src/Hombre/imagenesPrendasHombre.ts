@@ -26,6 +26,10 @@ import jogger1 from "../assets/prendasHombre/jogger1.jpeg";
 import jogger2 from "../assets/prendasHombre/jogger2.jpeg";
 import jogger3 from "../assets/prendasHombre/jogger3.jpeg";
 import jogger4 from "../assets/prendasHombre/jogger4.jpeg";
+import bermuda1 from "../assets/prendasHombre/bermuda1.jpeg";
+import bermuda2 from "../assets/prendasHombre/bermuda2.jpeg";
+import bermuda3 from "../assets/prendasHombre/bermuda3.jpeg";
+import bermuda4 from "../assets/prendasHombre/bermuda4.jpeg";
 
 export const imagenes = [
   //Camisetas
@@ -235,6 +239,36 @@ export const imagenes = [
     imagen: jogger4,
     titulo: "Jogger simple",
     descripcion: "Jogger rojo",
+    precio: "$20.000",
+  },
+
+  //Bermudas
+  {
+    id: 29,
+    imagen: bermuda1,
+    titulo: "Bermuda simple",
+    descripcion: "Bermuda rojo",
+    precio: "$20.000",
+  },
+  {
+    id: 30,
+    imagen: bermuda2,
+    titulo: "Bermuda simple",
+    descripcion: "Bermuda rojo",
+    precio: "$20.000",
+  },
+  {
+    id: 31,
+    imagen: bermuda3,
+    titulo: "Bermuda simple",
+    descripcion: "Bermuda rojo",
+    precio: "$20.000",
+  },
+  {
+    id: 32,
+    imagen: bermuda4,
+    titulo: "Bermuda simple",
+    descripcion: "Bermuda rojo",
     precio: "$20.000",
   },
 ];
