@@ -6,7 +6,7 @@ export const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <header className="bg-[#ffffff] flex justify-between h-15 items-center ">
+    <header className="bg-[#ffffff] flex justify-between h-15 items-center">
       <NavLink to="/">
         <h1 className="font-bold text-2xl pl-3">CraftYourStyle</h1>
       </NavLink>

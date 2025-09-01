@@ -100,10 +100,10 @@ export const Hombre = () => {
   ];
 
   return (
-    <div className="bg-white h-171">
+    <div className=" h-171 bg-[#f2f9f7] ">
       <h1 className="font-mono text-[30px] text-center">Ropa de hombre</h1>
 
-      <div className="flex flex-wrap justify-center mt-6">
+      <div className="flex flex-wrap justify-center mt-6 bg-[#f2f9f7] ">
         {imagenes.map((img) => (
           <div key={img.id} className="flex m-4">
             <div className="flex flex-col w-60">
