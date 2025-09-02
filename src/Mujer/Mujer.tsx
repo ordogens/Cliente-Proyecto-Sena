@@ -1,19 +1,19 @@
 import { useState } from "react";
-import { parteSuperior, parteInferior } from "./imagenesPrendasHombre";
-import opcion1 from "../assets/imagenOpcionParteSuperior.jpeg";
-import opcion2 from "../assets/imagenOpcionParteInferior.jpeg";
+import { parteSuperior, parteInferior } from "./imagenesPrendasMujer";
+import opcion1 from "../assets/prendasMujer/imagenOpcionParteSuperior.jpeg";
+import opcion2 from "../assets/prendasMujer/imagenOpcionParteInferior.jpeg";
 
 const opciones = [
   {
     id: 1,
     imagen: opcion1,
-    descripcion: "Camisas y Busos",
+    descripcion: "Blusas y Sacos",
     tipo: "Superior",
   },
   {
     id: 2,
     imagen: opcion2,
-    descripcion: "Pantalones y Bermudas",
+    descripcion: "Pantalones y Shorts",
     tipo: "Inferior",
   },
 ];

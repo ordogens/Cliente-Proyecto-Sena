@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { parteSuperior, parteInferior } from "./imagenesPrendasHombre";
-import opcion1 from "../assets/imagenOpcionParteSuperior.jpeg";
-import opcion2 from "../assets/imagenOpcionParteInferior.jpeg";
+import opcion1 from "../assets/prendasHombre/imagenOpcionParteSuperior.jpeg";
+import opcion2 from "../assets/prendasHombre/imagenOpcionParteInferior.jpeg";
 
 const opciones = [
   {
