@@ -30,13 +30,13 @@ export const Hombre = () => {
             <div key={img.id} className="flex mb-6 justify-center">
               <div
                 onClick={() => setSeleccion(img.tipo)}
-                className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-lg cursor-pointer"
+                className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg cursor-pointer"
               >
-                <div className="overflow-hidden rounded-lg">
+                <div className="overflow-hidden rounded-t-lg">
                   <img
                     src={img.imagen}
                     alt={`Camisa ${img.id}`}
-                    className="w-60 h-80 object-cover rounded-lg shadow-md transform duration-300 hover:scale-110"
+                    className="w-60 h-80 object-cover rounded-t-lg shadow-md transform duration-300 hover:scale-110"
                   />
                 </div>
                 <p className="text-sm text-center font-medium text-gray-900 break-words mt-2">
@@ -53,12 +53,12 @@ export const Hombre = () => {
           <div className="relative grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
             {parteSuperior.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] bg-gray-400 shadow-2xl bg-v rounded-lg">
+                <div className="flex flex-col w-60 h-[380px] bg-[#f2f9f7] shadow-2xl bg-v rounded-t-lg">
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
                       alt={`Camisa ${img.id}`}
-                      className="w-60 h-80 object-cover rounded-lg transform duration-300 hover:scale-110"
+                      className="w-60 h-80 object-cover rounded-t-lg transform duration-300 hover:scale-110"
                     />
                   </div>
                   <div className="flex justify-around">
@@ -90,12 +90,12 @@ export const Hombre = () => {
           <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
             {parteInferior.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-gray-400 rounded-lg">
+                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
                       alt={`Camisa ${img.id}`}
-                      className="w-60 h-80 object-cover rounded-lg shadow-md transform duration-300 hover:scale-110"
+                      className="w-60 h-80 object-cover rounded-t-lg shadow-md transform duration-300 hover:scale-110"
                     />
                   </div>
                   <div className="flex justify-around">
