@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { parteSuperior, parteInferior } from "./imagenesPrendasHombre";
+import {
+  camisetas,
+  camisas,
+  camibusos,
+  sacos,
+  parteInferior,
+} from "./imagenesPrendasHombre";
 import opcion1 from "../assets/prendasHombre/imagenOpcionParteSuperior.jpeg";
 import opcion2 from "../assets/prendasHombre/imagenOpcionParteInferior.jpeg";
 

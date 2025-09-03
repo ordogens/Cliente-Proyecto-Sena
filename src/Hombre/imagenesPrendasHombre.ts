@@ -31,7 +31,7 @@ import bermuda2 from "../assets/prendasHombre/bermuda2.jpeg";
 import bermuda3 from "../assets/prendasHombre/bermuda3.jpeg";
 import bermuda4 from "../assets/prendasHombre/bermuda4.jpeg";
 
-export const parteSuperior = [
+export const camisetas = [
   {
     id: 1,
     imagen: camiseta1,
@@ -60,6 +60,9 @@ export const parteSuperior = [
     descripcion: "Camiseta azul",
     precio: "$20.000",
   },
+];
+
+export const camisas = [
   {
     id: 5,
     imagen: camisa1,
@@ -88,6 +91,9 @@ export const parteSuperior = [
     descripcion: "Camisa gris manga larga",
     precio: "$20.000",
   },
+];
+
+export const camibusos = [
   {
     id: 9,
     imagen: camibuso1,
@@ -116,7 +122,9 @@ export const parteSuperior = [
     descripcion: "Camibuso amarillo claro",
     precio: "$20.000",
   },
-  {
+];
+export const sacos = [
+    {
     id: 13,
     imagen: saco1,
     titulo: "Saco simple",
@@ -144,10 +152,11 @@ export const parteSuperior = [
     descripcion: "Saco rojo",
     precio: "$20.000",
   },
+
 ];
 
 export const parteInferior = [
-      {
+  {
     id: 17,
     imagen: pantalon1,
     titulo: "Jean simple",
@@ -265,5 +274,4 @@ export const parteInferior = [
     descripcion: "Bermuda rojo",
     precio: "$20.000",
   },
-
-]
+];
