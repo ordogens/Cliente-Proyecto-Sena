@@ -124,7 +124,7 @@ export const camibusos = [
   },
 ];
 export const sacos = [
-    {
+  {
     id: 13,
     imagen: saco1,
     titulo: "Saco simple",
@@ -152,10 +152,9 @@ export const sacos = [
     descripcion: "Saco rojo",
     precio: "$20.000",
   },
-
 ];
 
-export const parteInferior = [
+export const jeans = [
   {
     id: 17,
     imagen: pantalon1,
@@ -184,8 +183,9 @@ export const parteInferior = [
     descripcion: "Jean blanco",
     precio: "$20.000",
   },
+];
 
-  //Sudadera
+export const sudaderas = [
   {
     id: 21,
     imagen: sudadera1,
@@ -214,8 +214,9 @@ export const parteInferior = [
     descripcion: "Sudadera azul oscuro",
     precio: "$20.000",
   },
+];
 
-  //Joggers
+export const joggers = [
   {
     id: 25,
     imagen: jogger1,
@@ -244,8 +245,9 @@ export const parteInferior = [
     descripcion: "Jogger rojo",
     precio: "$20.000",
   },
+];
 
-  //Bermudas
+export const bermudas = [
   {
     id: 29,
     imagen: bermuda1,
