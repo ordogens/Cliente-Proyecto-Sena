@@ -31,8 +31,7 @@ import short2 from "../assets/prendasMujer/short2.jpeg";
 import short3 from "../assets/prendasMujer/short3.jpeg";
 import short4 from "../assets/prendasMujer/short4.jpeg";
 
-export const parteSuperior = [
-  //Blusas
+export const blusas = [
   {
     id: 1,
     imagen: blusa1,
@@ -61,8 +60,9 @@ export const parteSuperior = [
     descripcion: "Blusa blanca amarillosa",
     precio: "$20.000",
   },
+];
 
-  //Camisetas
+export const camisetas = [
   {
     id: 5,
     imagen: camiseta1,
@@ -91,8 +91,9 @@ export const parteSuperior = [
     descripcion: "Camiseta verde oscuro",
     precio: "$20.000",
   },
+];
 
-  //Crop Tops
+export const cropTops = [
   {
     id: 9,
     imagen: cropTop1,
@@ -121,8 +122,9 @@ export const parteSuperior = [
     descripcion: "Crop Top lila",
     precio: "$20.000",
   },
+];
 
-  //Sacos
+export const sacos = [
   {
     id: 13,
     imagen: saco1,
@@ -153,8 +155,7 @@ export const parteSuperior = [
   },
 ];
 
-export const parteInferior = [
-  //Jeans
+export const jeans = [
   {
     id: 1,
     imagen: jean1,
@@ -183,8 +184,9 @@ export const parteInferior = [
     descripcion: "Jean gris",
     precio: "$20.000",
   },
+];
 
-  //Pantalones
+export const pantalones = [
   {
     id: 5,
     imagen: pantalon1,
@@ -213,8 +215,9 @@ export const parteInferior = [
     descripcion: "Pantalon rosa",
     precio: "$20.000",
   },
+];
 
-  //Faldas
+export const faldas = [
   {
     id: 9,
     imagen: falda1,
@@ -243,8 +246,9 @@ export const parteInferior = [
     descripcion: "Falda amarilla",
     precio: "$20.000",
   },
+];
 
-  //Shorts
+export const shorts = [
   {
     id: 13,
     imagen: short1,

@@ -44,7 +44,7 @@ export const opciones2 = [
     tipo: "camibuso",
   },
   {
-    id: 3,
+    id: 4,
     imagen: opcion24,
     descripcion: "Sacos",
     tipo: "saco",
@@ -71,7 +71,7 @@ export const opciones3 = [
     tipo: "jogger",
   },
   {
-    id: 3,
+    id: 4,
     imagen: opcion34,
     descripcion: "Bermudas",
     tipo: "bermuda",
