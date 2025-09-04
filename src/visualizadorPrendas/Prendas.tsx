@@ -9,14 +9,15 @@ const imagenes: string[] = [camisa, atras, adelante];
 export const Prendas = () => {
   const [selectedImage, setSelectedImage] = useState<string>(imagenes[0]);
   const [selectedColor, setSelectedColor] = useState<string>(colores[0]);
+  const [zoom, setZoom] = useState<boolean>(false);
 
   return (
     <div className="bg-[#f2f9f7] h-168 flex gap-10">
-        {/* contenedor izquierdo */}
+      {/* contenedor izquierdo */}
       <section className="w-1/2 h-168 flex justify-end pt-15 gap-1">
         <article className="w-15 h-100 rounded-lg flex flex-col gap-1">
-          {imagenes.map((imagen, idx) => (
-            (selectedImage === imagen) ? (
+          {imagenes.map((imagen, idx) =>
+            selectedImage === imagen ? (
               <img
                 key={idx}
                 src={imagen}
@@ -32,24 +33,35 @@ export const Prendas = () => {
                 onClick={() => setSelectedImage(imagen)}
               />
             )
-
-          ))}
+          )}
         </article>
 
-        <article className="w-100 h-130 rounded-2xl" style={{ backgroundColor: selectedColor }}>
-          <img src={selectedImage} alt="selected" className="rounded-lg" />
+        <article
+          className="w-100 h-130 rounded-2xl overflow-hidden"
+          style={{ backgroundColor: selectedColor }}
+        >
+          <img
+            src={selectedImage}
+            alt="selected"
+            onClick={() => setZoom(!zoom)}
+            // className="rounded-lg"
+            className={`
+              rounded-xl transition-transform duration-300
+              ${zoom ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}
+            `}
+          />
         </article>
       </section>
       {/* contenedor derecho */}
       <section className="w-1/2 h-168 pt-8 flex flex-col gap-8">
         <p className="font-bold md:text-2xl pb-9 ">Camiseta esencial unisex</p>
-          {/* colores */}
+        {/* colores */}
         <article className="w-75 h-32  flex flex-wrap gap-1 ">
           {colores.map((color, idx) => (
             <button
               key={idx}
               style={{ backgroundColor: color }}
-               onClick={() => setSelectedColor(color)}
+              onClick={() => setSelectedColor(color)}
               className="w-7 h-7 rounded cursor-pointer border"
             />
           ))}
