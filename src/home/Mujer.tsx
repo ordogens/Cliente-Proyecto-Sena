@@ -8,8 +8,8 @@ import {
   pantalones,
   faldas,
   shorts,
-} from "./imagenesPrendasMujer";
-import { opciones, opciones2, opciones3 } from "./imagenesOpcionesPrendas";
+} from "../data/mujer/imagenesPrendasMujer";
+import { opciones, opciones2, opciones3 } from "../data/mujer/imagenesOpcionesPrendas";
 
 export const Mujer = () => {
   const [seleccion, setSeleccion] = useState("");

@@ -1,13 +1,13 @@
-import opcion11 from "../assets/prendasMujer/imagenOpcionParteSuperior.jpeg";
-import opcion12 from "../assets/prendasMujer/imagenOpcionParteInferior.jpeg";
-import opcion21 from "../assets/prendasMujer/imagenOpcionBlusas.jpg";
-import opcion22 from "../assets/prendasMujer/imagenOpcionCamisetaM.jpeg";
-import opcion23 from "../assets/prendasMujer/imagenOpcionCropTops.jpg";
-import opcion24 from "../assets/prendasMujer/imagenOpcionSacosM.jpg";
-import opcion31 from "../assets/prendasMujer/imagenOpcionJeansM.jpg"
-import opcion32 from "../assets/prendasMujer/imagenOpcionPantalon.jpg"
-import opcion33 from "../assets/prendasMujer/imagenOpcionFalda.jpg"
-import opcion34 from "../assets/prendasMujer/imagenOpcionShorts.jpg"
+import opcion11 from "../../assets/prendasMujer/imagenOpcionParteSuperior.jpeg";
+import opcion12 from "../../assets/prendasMujer/imagenOpcionParteInferior.jpeg";
+import opcion21 from "../../assets/prendasMujer/imagenOpcionBlusas.jpg";
+import opcion22 from "../../assets/prendasMujer/imagenOpcionCamisetaM.jpeg";
+import opcion23 from "../../assets/prendasMujer/imagenOpcionCropTops.jpg";
+import opcion24 from "../../assets/prendasMujer/imagenOpcionSacosM.jpg";
+import opcion31 from "../../assets/prendasMujer/imagenOpcionJeansM.jpg"
+import opcion32 from "../../assets/prendasMujer/imagenOpcionPantalon.jpg"
+import opcion33 from "../../assets/prendasMujer/imagenOpcionFalda.jpg"
+import opcion34 from "../../assets/prendasMujer/imagenOpcionShorts.jpg"
 
 export const opciones = [
   {

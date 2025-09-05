@@ -1,17 +1,17 @@
-import photo from "../assets/prendasHombre/photo.png";
-import Sleeveless from "../assets/prendasHombre/sleeveless.png";
-import polos from "../assets/prendasHombre/polos.png";
-import busos from "../assets/prendasHombre/busos.png";
-import camisasss from "../assets/prendasHombre/camisasss.png";
-import opcion12 from "../assets/prendasHombre/pantalones.png";
-import opcion21 from "../assets/prendasHombre/imagenOpcionCamisetas.jpeg";
-import opcion22 from "../assets/prendasHombre/imagenOpcionCamisas.jpeg";
-import opcion23 from "../assets/prendasHombre/imagenOpcionCamibusos.jpeg";
-import opcion24 from "../assets/prendasHombre/imagenOpcionSacos.jpeg";
-import opcion31 from "../assets/prendasHombre/imagenOpcionJeans.jpeg"
-import opcion32 from "../assets/prendasHombre/imagenOpcionSudareras.jpeg"
-import opcion33 from "../assets/prendasHombre/imagenOpcionJoggers.jpeg"
-import opcion34 from "../assets/prendasHombre/imagenOpcionBermudas.jpeg"
+import photo from "../../assets/prendasHombre/photo.png";
+import Sleeveless from "../../assets/prendasHombre/sleeveless.png";
+import polos from "../../assets/prendasHombre/polos.png";
+import busos from "../../assets/prendasHombre/busos.png";
+import camisasss from "../../assets/prendasHombre/camisasss.png";
+import opcion12 from "../../assets/prendasHombre/pantalones.png";
+import opcion21 from "../../assets/prendasHombre/imagenOpcionCamisetas.jpeg";
+import opcion22 from "../../assets/prendasHombre/imagenOpcionCamisas.jpeg";
+import opcion23 from "../../assets/prendasHombre/imagenOpcionCamibusos.jpeg";
+import opcion24 from "../../assets/prendasHombre/imagenOpcionSacos.jpeg";
+import opcion31 from "../../assets/prendasHombre/imagenOpcionJeans.jpeg"
+import opcion32 from "../../assets/prendasHombre/imagenOpcionSudareras.jpeg"
+import opcion33 from "../../assets/prendasHombre/imagenOpcionJoggers.jpeg"
+import opcion34 from "../../assets/prendasHombre/imagenOpcionBermudas.jpeg"
 
 export const opciones1 = [
   {
