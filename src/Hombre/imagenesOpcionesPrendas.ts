@@ -3,7 +3,7 @@ import Sleeveless from "../assets/prendasHombre/sleeveless.png";
 import polos from "../assets/prendasHombre/polos.png";
 import busos from "../assets/prendasHombre/busos.png";
 import camisasss from "../assets/prendasHombre/camisasss.png";
-// import opcion12 from "../assets/prendasHombre/pantalones.png";
+import opcion12 from "../assets/prendasHombre/pantalones.png";
 import opcion21 from "../assets/prendasHombre/imagenOpcionCamisetas.jpeg";
 import opcion22 from "../assets/prendasHombre/imagenOpcionCamisas.jpeg";
 import opcion23 from "../assets/prendasHombre/imagenOpcionCamibusos.jpeg";
@@ -20,12 +20,7 @@ export const opciones1 = [
     descripcion: "Camisas",
     tipo: "Superior",
   },
-  // {
-  //   id: 2,
-  //   imagen: opcion12,
-  //   descripcion: "Pantalones y Bermudas",
-  //   tipo: "Inferior",
-  // },
+  
   {
     id: 3,
     imagen: busos,
@@ -49,6 +44,12 @@ export const opciones1 = [
     imagen: Sleeveless,
     descripcion: "Exqueletos",
     tipo: "Superior",
+  },
+  {
+    id: 2,
+    imagen: opcion12,
+    descripcion: "Pantalones y Bermudas",
+    tipo: "Inferior",
   },
 ];
 
