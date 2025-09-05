@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./Header";
-import { Home } from "./home/Home";
-import { Catalogo } from "./catalogo/Catalogo";
+import { Home } from "./views/Home";
+import { Catalogo } from "./components/catalogo/Catalogo";
 // import { Prendas } from "./visualizadorPrendas/Prendas";
 import { ProductsPage } from "./pages/ProductsPage";
 import { Categoria } from "./lib/helpers/Category";

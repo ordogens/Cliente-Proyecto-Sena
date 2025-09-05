@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { categorias } from "./../lib/constants/categoryPath";
+import { categorias } from "../../lib/constants/categoryPath";
 
 export const Catalogo = () => {
 

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { Hombre } from "../../home/Hombre"; 
-import { Mujer } from "../../home/Mujer";
+import { Hombre } from "../../views/Hombre"; 
+import { Mujer } from "../../views/Mujer";
 
 export const Categoria = () => {
   const { sexo } = useParams();
