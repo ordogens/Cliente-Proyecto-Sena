@@ -1,31 +1,32 @@
-import { type ReactNode } from "react";
+import { useState } from "react";
+import { Register } from "./Register";
+import { Login } from "./Login";
 
-type LoginRegisterModalProps = {
+// Definir las props del componente
+interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: ReactNode;
-};
+}
 
-export const LoginRegisterModal = ({ 
-  isOpen, 
-  onClose, 
-  children 
-}: LoginRegisterModalProps) => {
+export const LoginRegisterModal = ({ isOpen, onClose }: ModalProps) => {
+  const [isLoginActive, setIsLoginActive] = useState(true); // Login por defecto
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4 relative">
-        {/* Botón de cerrar */}
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl font-bold"
-        >
-          ×
-        </button>
+  const handleChangeForm = () => {
+    setIsLoginActive((prev) => !prev);
+  };
 
-        {/* Contenido dinámico */}
-        {children}
+  return (
+    <div className="flex justify-center items-center fixed inset-0 bg-[rgba(0,0,0,0.719)] bg-opacity-50 z-50">
+      <div className="w-80 h-96 bg-white p-4 rounded shadow-lg flex flex-col items-center">
+        <button className="cursor-pointer" onClick={onClose}>
+          X
+        </button>
+        {isLoginActive ? (
+          <Login onChangeForm={handleChangeForm} />
+        ) : (
+          <Register onChangeForm={handleChangeForm} />
+        )}
       </div>
     </div>
   );

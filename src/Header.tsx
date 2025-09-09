@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { LogIn, Moon, Sun, ShoppingCart } from "lucide-react";
 import { useState } from "react";
+import { LoginRegisterModal } from "./components/LoginRegisterModal";
 
 export const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <header className="bg-[#ffffff] flex justify-between h-15 items-center border-1 border-gray-300">
@@ -37,13 +39,21 @@ export const Header = () => {
               </button>
             </li>
             <li>
-              <button className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm w-20 h-7 cursor-pointer text-center me-2 mb-2">
+              <button
+                className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm w-20 h-7 cursor-pointer text-center me-2 mb-2"
+                onClick={() => setIsModalOpen(true)}
+              >
                 Login
               </button>
             </li>
           </ul>
         </ul>
       </div>
+
+      <LoginRegisterModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </header>
   );
 };
