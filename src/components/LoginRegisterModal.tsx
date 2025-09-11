@@ -17,10 +17,10 @@ export const LoginRegisterModal = ({ isOpen, onClose }: ModalProps) => {
   };
 
   return (
-    <div className="flex justify-center items-center fixed inset-0 bg-[rgba(0,0,0,0.719)] bg-opacity-50 z-50">
-      <div className="w-80 h-96 bg-white p-4 rounded shadow-lg flex flex-col items-center">
-        <button className="cursor-pointer" onClick={onClose}>
-          X
+    <div className="flex justify-center items-center fixed inset-0 z-50">
+      <div className="w-80 h-96 p-4 flex flex-col relative">
+        <button className="cursor-pointer text-gray-600 text-right absolute right-4 top-[-40px] z-100" onClick={onClose}>
+          x
         </button>
         {isLoginActive ? (
           <Login onChangeForm={handleChangeForm} />
