@@ -1,5 +1,7 @@
 import { EyeIcon, EyeOffIcon, MailIcon, LockIcon } from "lucide-react";
+import googleIcon from "../assets/googleIcon.png";
 import { useState } from "react";
+import facebookIcon from "../assets/facebookIcon.jpg";
 
 interface OnchangeType {
   onChangeForm: () => void;
@@ -20,12 +22,27 @@ export const Login = ({ onChangeForm }: OnchangeType) => {
           Iniciar Sesión
         </h1>
 
-        <button className="text-gray-700 border-[2px] cursor-pointer border-gray-300 rounded mt-1.5 p-1.5 hover:bg-gray-200 transition duration-300 ease-in-out">
-          Continuar con Google
-        </button>
-        <button className="text-gray-700 border-[2px] cursor-pointer border-gray-300 rounded p-1.5 mt-1.5 hover:bg-gray-200 transition duration-300 ease-in-out">
-          Continuar con Facebook
-        </button>
+        <div className="relative">
+          <img
+            src={googleIcon}
+            alt="Google Icon"
+            className="absolute left-6.5 top-6.5 -translate-y-1/2 h-5 w-5"
+          />
+          <button className="text-gray-700 border-[2px] w-2xs cursor-pointer border-gray-300 rounded mt-1.5 p-1.5 hover:bg-gray-200 transition duration-300 ease-in-out">
+            Continuar con Google
+          </button>
+        </div>
+
+        <div className="relative">
+          <img
+            src={facebookIcon}
+            alt="Facebook Icon"
+            className="absolute left-5 top-6.5 -translate-y-1/2 h-8 w-8"
+          />
+          <button className="text-gray-700 w-2xs border-[2px] cursor-pointer border-gray-300 rounded p-1.5 mt-1.5 hover:bg-gray-200 transition duration-300 ease-in-out">
+            Continuar con Facebook
+          </button>
+        </div>
 
         <div className="flex items-center my-4">
           <hr className="flex-grow border-t border-gray-300" />
