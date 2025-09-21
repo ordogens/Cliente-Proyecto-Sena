@@ -1,20 +1,33 @@
 import hombre from "../assets/modern.png";
 import { NavLink } from "react-router-dom";
+import { useTheme } from "../contexts/ThemeContext";
 
 export const Home = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <div className="bg-[#f2f9f7] h-168 flex">
+    <div className={`h-168 flex transition-colors duration-300 ${
+      isDarkMode ? 'bg-gray-900' : 'bg-[#f2f9f7]'
+    }`}>
       <div className="w-1/2 ml-10 flex flex-col">
-        <p className="font-bold text-2xl md:text-6xl pt-3">
+        <p className={`font-bold text-2xl md:text-6xl pt-3 transition-colors duration-300 ${
+          isDarkMode ? 'text-white' : 'text-black'
+        }`}>
           Crea productos personalizados online
         </p>
-        <p className="text-gray-600 text-1xl pt-2">
+        <p className={`text-1xl pt-2 transition-colors duration-300 ${
+          isDarkMode ? 'text-gray-300' : 'text-gray-600'
+        }`}>
           Convierte tus ideas en productos premium
         </p>
-        <p className="text-4xl md:text-6xl font-bold tracking-tight text-balance max-w-md pt-8">
+        <p className={`text-4xl md:text-6xl font-bold tracking-tight text-balance max-w-md pt-8 transition-colors duration-300 ${
+          isDarkMode ? 'text-white' : 'text-black'
+        }`}>
           Diseña tu <span className="text-green-500">estilo único</span>
         </p>
-        <p className="text-lg text-muted-foreground text-pretty max-w-md">
+        <p className={`text-lg text-pretty max-w-md transition-colors duration-300 ${
+          isDarkMode ? 'text-gray-300' : 'text-gray-600'
+        }`}>
           Personaliza camisas, pantalones, gorras y más con nuestros diseños
           predeterminados o sube tus propias creaciones.
         </p>
@@ -24,8 +37,14 @@ export const Home = () => {
             Empieza a personalizar{" "}
           </button>
           <NavLink to="/catalogo">
-          <button className="text-white bg-gradient-to-r from-gray-100 via-gray-200 to-gray-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-            <p className="text-black">Ver catalogo</p>
+          <button className={`font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-all duration-300 ${
+            isDarkMode 
+              ? 'bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-600 shadow-lg shadow-gray-800/80'
+              : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 shadow-lg shadow-gray-500/50'
+          }`}>
+            <p className={`transition-colors duration-300 ${
+              isDarkMode ? 'text-white' : 'text-black'
+            }`}>Ver catalogo</p>
           </button>
           </NavLink>
         </div>

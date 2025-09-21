@@ -8,12 +8,15 @@ import {
 import { useState } from "react";
 import googleIcon from "../assets/googleIcon.png";
 import facebookIcon from "../assets/facebookIcon.jpg";
+import { useTheme } from "../contexts/ThemeContext";
 
 interface OnchangeType {
   onChangeForm: () => void;
 }
 
 export const Register = ({ onChangeForm }: OnchangeType) => {
+  const { isDarkMode } = useTheme();
+  
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
 
@@ -24,7 +27,7 @@ export const Register = ({ onChangeForm }: OnchangeType) => {
 
   return (
     <div className="flex justify-center items-center fixed inset-0 bg-[rgba(0,0,0,0.719)] bg-opacity-50 z-50">
-      <div className="w-80 relative bg-white p-4 rounded shadow-lg flex flex-col">
+      <div className={`w-80 relative ${isDarkMode? "bg-[#111827]": "bg-white" } p-4 rounded shadow-lg flex flex-col`}>
         <h1 className="text-emerald-600 text-center text-2xl font-bold">
           Crear Cuenta
         </h1>

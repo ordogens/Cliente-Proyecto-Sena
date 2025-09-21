@@ -9,14 +9,26 @@ import {
   faldas,
   shorts,
 } from "../data/mujer/imagenesPrendasMujer";
-import { opciones, opciones2, opciones3 } from "../data/mujer/imagenesOpcionesPrendas";
+import {
+  opciones,
+  opciones2,
+  opciones3,
+} from "../data/mujer/imagenesOpcionesPrendas";
+import { useTheme } from "../contexts/ThemeContext";
 
 export const Mujer = () => {
   const [seleccion, setSeleccion] = useState("");
+  const { isDarkMode } = useTheme();
 
   return (
     <div className="h-171 bg-[#f2f9f7]">
-      <h1 className="font-bold text-[30px] text-center">Ropa de mujer</h1>
+      <h1
+        className={`${
+          isDarkMode ? "text-white" : "text-black"
+        } font-bold text-[30px] text-center`}
+      >
+        Ropa de mujer
+      </h1>
       {seleccion === "" && (
         <div className="grid grid-cols-2 mt-6 gap-4 bg-[#f2f9f7]">
           {opciones.map((img) => (
@@ -32,7 +44,7 @@ export const Mujer = () => {
                     className="w-60 h-80 object-cover rounded-t-lg shadow-md transform duration-300 hover:scale-110"
                   />
                 </div>
-                <p className="text-sm text-center font-medium text-gray-900 break-words mt-2">
+                <p className={`text-sm text-center font-medium ${isDarkMode? "text-white": "text-black"} break-words mt-2`}>
                   {img.descripcion}
                 </p>
               </div>
