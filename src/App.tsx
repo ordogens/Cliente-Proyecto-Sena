@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./Header";
 import { Home } from "./views/Home";
 import { Catalogo } from "./components/catalogo/Catalogo";
-// import { Prendas } from "./visualizadorPrendas/Prendas";
+import { Prendas } from "./visualizadorPrendas/Prendas";
 import { ProductsPage } from "./pages/ProductsPage";
 import { Categoria } from "./lib/helpers/Category";
 
@@ -14,7 +14,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/catalogo" element={<Catalogo />} />
-
+          <Route path="/prendas" element={<Prendas/>} />
           <Route path="/catalogo/:sexo" element={<Categoria />} />
           <Route path="/catalogo/:sexo/:tipo" element={<ProductsPage />} />
 

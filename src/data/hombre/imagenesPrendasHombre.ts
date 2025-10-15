@@ -98,8 +98,8 @@ export const camibusos = [
     id: 9,
     imagen: camibuso1,
     titulo: "Camibuso simple",
-    descripcion: "Camibuso beige claro con mangas con lineas negras",
     precio: "$20.000",
+    descripcion: "Camibuso beige claro con mangas con lineas negras",
   },
   {
     id: 10,
