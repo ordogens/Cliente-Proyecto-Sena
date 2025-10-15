@@ -1,13 +1,16 @@
 import { EyeIcon, EyeOffIcon, MailIcon, LockIcon } from "lucide-react";
-import googleIcon from "../assets/googleIcon.png";
+import GoogleIcon from "../assets/svg/GoogleIcon";
 import { useState } from "react";
 import facebookIcon from "../assets/facebookIcon.jpg";
+import { useTheme } from "../contexts/ThemeContext";
 
 interface OnchangeType {
   onChangeForm: () => void;
 }
 
 export const Login = ({ onChangeForm }: OnchangeType) => {
+  const { isDarkMode } = useTheme();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,16 +20,20 @@ export const Login = ({ onChangeForm }: OnchangeType) => {
 
   return (
     <div className="flex justify-center items-center fixed inset-0 bg-[rgba(0,0,0,0.719)] bg-opacity-50 z-50">
-      <div className="w-80 h-120 relative bg-white p-4 rounded shadow-lg flex flex-col">
+      <div
+        className={`w-80 h-120 relative ${
+          isDarkMode ? "bg-[#111827]" : "bg-white"
+        } p-4 rounded shadow-lg flex flex-col`}
+      >
         <h1 className="text-emerald-600 text-center text-2xl font-bold">
           Iniciar Sesión
         </h1>
 
-        <div className="relative">
-          <img
-            src={googleIcon}
-            alt="Google Icon"
-            className="absolute left-6.5 top-6.5 -translate-y-1/2 h-5 w-5"
+        <div className="relative group">
+          <GoogleIcon 
+            width="32px" 
+            height="32px" 
+            className="absolute left-5 top-6.5 -translate-y-1/2 text-gray-500 group-hover:text-emerald-600 transition-colors duration-300 ease-in-out" 
           />
           <button className="text-gray-700 border-[2px] w-2xs cursor-pointer border-gray-300 rounded mt-1.5 p-1.5 hover:bg-gray-200 transition duration-300 ease-in-out">
             Continuar con Google
@@ -68,7 +75,7 @@ export const Login = ({ onChangeForm }: OnchangeType) => {
                 name="correo"
                 type="email"
                 placeholder="tu@email.com"
-                className="mt-1 block w-full rounded-md border border-gray-300 pl-10 pr-3 py-2 text-sm shadow-sm focus:outline-none focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border placeholder-gray-400 border-gray-300 pl-10 pr-3 py-2 text-sm shadow-sm focus:outline-none focus:border-green-500 focus:ring-green-500"
                 onInvalid={(e) =>
                   (e.target as HTMLInputElement).setCustomValidity(
                     "Por favor ingresa un correo válido"
@@ -96,7 +103,7 @@ export const Login = ({ onChangeForm }: OnchangeType) => {
                 name="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Tu contraseña"
-                className="mt-1 block w-full rounded-md border border-gray-300 pl-10 pr-10 py-2 text-sm shadow-sm focus:outline-none focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border placeholder-gray-400 border-gray-300 pl-10 pr-10 py-2 text-sm shadow-sm focus:outline-none focus:border-green-500 focus:ring-green-500"
                 required
               />
               <button
@@ -128,7 +135,9 @@ export const Login = ({ onChangeForm }: OnchangeType) => {
         </form>
 
         <div className="flex justify-center mt-2">
-          <p>¿No tienes cuenta?</p>
+          <p className={`${isDarkMode ? "text-white" : "text-black"}`}>
+            ¿No tienes cuenta?
+          </p>
           <p
             onClick={onChangeForm}
             className="ml-1 text-emerald-600 cursor-pointer hover:text-green-800 transition duration-300 ease-in-out"

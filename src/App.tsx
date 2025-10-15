@@ -5,21 +5,24 @@ import { Catalogo } from "./components/catalogo/Catalogo";
 import { Prendas } from "./visualizadorPrendas/Prendas";
 import { ProductsPage } from "./pages/ProductsPage";
 import { Categoria } from "./lib/helpers/Category";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 export const App = () => {
   return (
-    <div className="h-screen bg-[#f2f9f7]">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalogo" element={<Catalogo />} />
-          <Route path="/prendas" element={<Prendas/>} />
-          <Route path="/catalogo/:sexo" element={<Categoria />} />
-          <Route path="/catalogo/:sexo/:tipo" element={<ProductsPage />} />
+    <ThemeProvider>
+      <div className="h-screen bg-[#f2f9f7]">
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/catalogo" element={<Catalogo />} />
 
-        </Routes>
-      </BrowserRouter>
-    </div>
+            <Route path="/catalogo/:sexo" element={<Categoria />} />
+            <Route path="/catalogo/:sexo/:tipo" element={<ProductsPage />} />
+
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 };

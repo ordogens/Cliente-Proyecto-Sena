@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { opciones1 } from "../data/hombre/imagenesOpcionesPrendas";
+import { useTheme } from "../contexts/ThemeContext";
 
 export const Hombre = () => {
   const navigate = useNavigate();
+  const { isDarkMode } = useTheme();
 
   return (
     <div className="h-171 bg-[#f2f9f7]">
-      <h1 className="font-bold text-[30px] text-center">
+      <h1 className={`${isDarkMode? "text-white": "text-black"} text-4xl font-bold pt-6 text-center`}>
         Ropa de <span className="text-green-500">hombre</span>
       </h1>
       <div className="flex justify-center mt-6 gap-6 flex-wrap bg-[#f2f9f7]">
@@ -23,7 +25,7 @@ export const Hombre = () => {
                   className="w-40 h-60 object-center rounded-t-lg group-hover:transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <p className="font-bold text-center group-hover:text-green-400 break-words mt-3 duration-300">
+              <p className="font-bold text-black text-center group-hover:text-green-400 break-words mt-3 duration-300">
                 {img.descripcion}
               </p>
             </div>
