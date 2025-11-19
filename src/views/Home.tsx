@@ -33,11 +33,13 @@ export const Home = () => {
         </p>
 
         <div className="flex gap-3 pt-8">
+          <NavLink to="/personalizacion">
           <button className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
             Empieza a personalizar{" "}
           </button>
+          </NavLink>
           <NavLink to="/catalogo">
-          <button className={`font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-all duration-300 ${
+          <button className={`cursor-pointer font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 transition-all duration-300 ${
             isDarkMode 
               ? 'bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-600 shadow-lg shadow-gray-800/80'
               : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 shadow-lg shadow-gray-500/50'
