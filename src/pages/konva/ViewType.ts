@@ -1,2 +1,36 @@
 export type ViewType = "front" | "back" | "left" | "right";
 
+export const COLORS: string[] = [
+  "#FF5733",
+  "#FF8D1A",
+  "#FFC300",
+  "#DAF7A6",
+  "#AED6F1",
+  "#5DADE2",
+  "#2E86C1",
+  "#1B4F72",
+  "#AF7AC5",
+  "#9B59B6",
+  "#884EA0",
+  "#F1948A",
+  "#EC7063",
+  "#A93226",
+  "#F7DC6F",
+  "#D4AC0D",
+  "#27AE60",
+  "#1E8449",
+  "#82E0AA",
+  "#73C6B6",
+  "#16A085",
+  "#117A65",
+  "#48C9B0",
+  "#0E6251",
+  "#F5B7B1",
+  "#D98880",
+  "#BA4A00",
+  "#F0B27A",
+  "#EB984E",
+  "#DC7633",
+];
+
+

@@ -1,0 +1,7 @@
+.gr{
+    display: grid;
+    grid-template-columns: repeat(6, 30px);
+    grid-template-rows: repeat(1, 30px);
+    gap: 1rem;
+    justify-content: center;
+}
