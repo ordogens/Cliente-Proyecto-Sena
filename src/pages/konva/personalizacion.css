@@ -1,7 +1,8 @@
 .gr{
     display: grid;
     grid-template-columns: repeat(6, 30px);
-    grid-template-rows: repeat(1, 30px);
+    grid-template-rows: repeat(5, 30px);
     gap: 1rem;
     justify-content: center;
+    padding: .5rem 0rem 2rem 0rem ;
 }

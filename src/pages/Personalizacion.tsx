@@ -3,10 +3,13 @@ import { Shirt, Upload, Type, Smile, WandSparkles } from "lucide-react";
 import { ShirtDesigner } from "./konva/ShirtDesigner";
 import { COLORS } from "./konva/ViewType";
 import "./konva/personalizacion.css";
+import type { ViewType } from "./konva/ViewType";
+
 
 export const Personalizacion = () => {
   const [file, setFile] = useState<File | null>(null);
   const [selectedColor, setSelectedColor] = useState<string>("#ffffff");
+    const [currentView, setCurrentView] = useState<ViewType>("front"); // 👈 nuevo
 
 
   const uploadFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,10 +39,10 @@ export const Personalizacion = () => {
           <Smile color="black" size={30} className="cursor-pointer" />
           <WandSparkles color="black" size={30} className="cursor-pointer" />
         </section>
-        
+
         {/* contenedor de los colores */}
           {/* ============================================================================================= */}
-        <div className="w-full h-[30%] bg-amber-400 gr">
+        <div className="w-full h-[35%] border-b-black border-1 bg-white gr">
           {COLORS.map((color) => (
             <button key={color}
              className="border-1 border-black rounded-sm cursor-pointer" 
@@ -53,16 +56,16 @@ export const Personalizacion = () => {
 
       <section className="w-[70%] h-full border-1 border-black flex flex-col items-center gap-5">
         <section className="w-full h-[7%] flex justify-center gap-4 items-center">
-          <p className="text-black font-bold cursor-pointer text-sm">
+          <p className="text-black font-bold cursor-pointer text-sm" onClick={() => setCurrentView("front")}>
             Impresión frontal
           </p>
-          <p className="text-black font-bold cursor-pointer text-sm">
+          <p className="text-black font-bold cursor-pointer text-sm" onClick={() => setCurrentView("back")}>
             Impresión trasera
           </p>
-          <p className="text-black font-bold cursor-pointer text-sm">
+          <p className="text-black font-bold cursor-pointer text-sm" onClick={() => setCurrentView("left")}>
             Manga izquierda
           </p>
-          <p className="text-black font-bold cursor-pointer text-sm">
+          <p className="text-black font-bold cursor-pointer text-sm" onClick={() => setCurrentView("right")}>
             Manga derecha
           </p>
         </section>
@@ -71,7 +74,7 @@ export const Personalizacion = () => {
 
         <section className="border-1 border-black w-[90%] h-[80%] rounded-sm">
           {/* ENVIAMOS EL ARCHIVO */}
-          <ShirtDesigner file={file} view="front" color={selectedColor} />
+          <ShirtDesigner file={file} view={currentView} color={selectedColor} />
         </section>
 
           {/* ============================================================================================= */}
