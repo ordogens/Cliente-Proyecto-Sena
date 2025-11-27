@@ -5,11 +5,13 @@ import { useTheme } from "../../contexts/ThemeContext";
 export const Catalogo = () => {
   const { isDarkMode } = useTheme();
   return (
-    <div className="bg-[#f2f9f7] h-168 flex flex-col items-center">
+    <div className={`h-168 flex flex-col items-center transition-colors duration-300 ${
+      isDarkMode ? 'bg-gray-900' : 'bg-[#f2f9f7]'
+    }`}>
       <h1
-        className={`${
+        className={`text-4xl font-bold mb-8 pt-6 transition-colors duration-300 ${
           isDarkMode ? "text-white" : "text-black"
-        } text-4xl font-bold mb-8 pt-6`}
+        }`}
       >
         Catálogo de <span className="text-green-500">productos</span>
       </h1>
@@ -19,27 +21,29 @@ export const Catalogo = () => {
         {categorias.map((categoria) => (
           <div
             key={categoria.id}
-            className={`${
+            className={`rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 ${
               isDarkMode ? "bg-[#232d4a]" : "bg-white"
-            } rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300`}
+            }`}
           >
             <img
               src={categoria.imagen}
               alt={categoria.nombre}
-              className="w-full h-70 object-contain bg-gray-100"
+              className={`w-full h-70 object-contain transition-colors duration-300 ${
+                isDarkMode ? 'bg-gray-800' : 'bg-gray-100'
+              }`}
             />
             <div className="p-5">
               <h2
-                className={`text-xl font-semibold mb-2 ${
+                className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
                   isDarkMode ? "text-gray-200" : "text-black"
                 }`}
               >
                 {categoria.nombre}
               </h2>
               <p
-                className={`${
-                  isDarkMode ? "text-gray-400" : "text-black"
-                } mb-4`}
+                className={`mb-4 transition-colors duration-300 ${
+                  isDarkMode ? "text-gray-400" : "text-gray-600"
+                }`}
               >
                 {categoria.descripcion}
               </p>

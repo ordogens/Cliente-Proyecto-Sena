@@ -9,10 +9,12 @@ export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <header className="bg-[#ffffff] flex justify-between h-15 items-center border-1 border-gray-300">
+    <header className={`flex justify-between h-15 items-center border-1 transition-colors duration-300 ${
+      isDarkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-300'
+    }`}>
       <NavLink to="/">
         <h1
-          className={`font-bold text-2xl ${
+          className={`font-bold text-2xl transition-colors duration-300 ${
             isDarkMode ? "text-white" : "text-black"
           } pl-3`}
         >
@@ -26,12 +28,12 @@ export const Header = () => {
           <ul className="flex gap-x-3 ">
             <li className="cursor-pointer">
               <LogIn
-                className={`${isDarkMode ? "text-white" : "text-black"}`}
+                className={`transition-colors duration-300 ${isDarkMode ? "text-white" : "text-black"}`}
               />
             </li>
             <li className="cursor-pointer">
               <ShoppingCart
-                className={`${isDarkMode ? "text-white" : "text-black"}`}
+                className={`transition-colors duration-300 ${isDarkMode ? "text-white" : "text-black"}`}
               />
               <div className="relative bottom-6 left-4 size-2.5 rounded-full text-[.5rem] flex items-center justify-center font-medium shadow-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600">
                 3
@@ -39,7 +41,9 @@ export const Header = () => {
             </li>
             <li>
               <button
-                className="cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                className={`cursor-pointer p-2 rounded-lg transition-colors duration-300 ${
+                  isDarkMode ? 'hover:bg-gray-800' : 'hover:bg-gray-100'
+                }`}
                 onClick={toggleTheme}
               >
                 {isDarkMode ? (

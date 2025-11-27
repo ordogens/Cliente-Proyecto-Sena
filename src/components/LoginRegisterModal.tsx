@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Register } from "../Register/Register";
 import { Login } from "../Login/Login";
+import { useTheme } from "../contexts/ThemeContext";
 
 // Definir las props del componente
 interface ModalProps {
@@ -10,6 +11,7 @@ interface ModalProps {
 
 export const LoginRegisterModal = ({ isOpen, onClose }: ModalProps) => {
   const [isLoginActive, setIsLoginActive] = useState(true); // Login por defecto
+  const { isDarkMode } = useTheme();
 
   if (!isOpen) return null;
 
@@ -19,8 +21,11 @@ export const LoginRegisterModal = ({ isOpen, onClose }: ModalProps) => {
 
   // Estilos dinámicos para la X basados en el formulario activo
   const getCloseButtonStyle = () => {
+    const colorStyle = isDarkMode 
+      ? "text-gray-300 hover:text-white" 
+      : "text-gray-600 hover:text-gray-800";
     const baseStyle =
-      "cursor-pointer text-gray-600 absolute z-100 text-xl font-bold hover:text-gray-800 transition-colors duration-200";
+      `cursor-pointer absolute z-100 text-xl font-bold transition-colors duration-300 ${colorStyle}`;
 
     if (isLoginActive) {
       // Estilo para Login - esquina superior derecha

@@ -21,21 +21,25 @@ export const Mujer = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className="h-171 bg-[#f2f9f7]">
+    <div className={`h-171 transition-colors duration-300 ${
+      isDarkMode ? 'bg-gray-900' : 'bg-[#f2f9f7]'
+    }`}>
       <h1
-        className={`${
+        className={`font-bold text-[30px] text-center transition-colors duration-300 ${
           isDarkMode ? "text-white" : "text-black"
-        } font-bold text-[30px] text-center`}
+        }`}
       >
         Ropa de mujer
       </h1>
       {seleccion === "" && (
-        <div className="grid grid-cols-2 mt-6 gap-4 bg-[#f2f9f7]">
+        <div className="grid grid-cols-2 mt-6 gap-4">
           {opciones.map((img) => (
             <div key={img.id} className="flex mb-6 justify-center">
               <div
                 onClick={() => setSeleccion(img.tipo)}
-                className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg cursor-pointer"
+                className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg cursor-pointer transition-all duration-300 hover:shadow-2xl ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}
               >
                 <div className="overflow-hidden rounded-t-lg">
                   <img
@@ -44,7 +48,9 @@ export const Mujer = () => {
                     className="w-60 h-80 object-cover rounded-t-lg shadow-md transform duration-300 hover:scale-110"
                   />
                 </div>
-                <p className={`text-sm text-center font-medium ${isDarkMode? "text-white": "text-black"} break-words mt-2`}>
+                <p className={`text-sm text-center font-medium break-words mt-2 transition-colors duration-300 ${
+                  isDarkMode ? "text-white" : "text-gray-600"
+                }`}>
                   {img.descripcion}
                 </p>
               </div>
@@ -55,12 +61,14 @@ export const Mujer = () => {
 
       {seleccion === "Superior" && (
         <>
-          <div className="relative grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="relative grid grid-cols-4 mt-6 gap-4">
             {opciones2.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
                 <div
                   onClick={() => setSeleccion(img.tipo)}
-                  className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg cursor-pointer"
+                  className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg cursor-pointer transition-all duration-300 hover:shadow-2xl ${
+                    isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                  }`}
                 >
                   <div className="overflow-hidden rounded-t-lg">
                     <img
@@ -69,7 +77,9 @@ export const Mujer = () => {
                       className="w-60 h-80 object-cover rounded-t-lg shadow-md transform duration-300 hover:scale-110"
                     />
                   </div>
-                  <p className="text-sm text-center font-medium text-gray-900 break-words mt-2">
+                  <p className={`text-sm text-center font-medium break-words mt-2 transition-colors duration-300 ${
+                    isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -91,10 +101,12 @@ export const Mujer = () => {
 
       {seleccion === "blusa" && (
         <>
-          <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="grid grid-cols-4 mt-6 gap-4">
             {blusas.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
+                <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg transition-all duration-300 ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}>
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
@@ -103,10 +115,14 @@ export const Mujer = () => {
                     />
                   </div>
                   <div className="flex justify-around">
-                    <p className="font-medium text-gray-800">{img.titulo}</p>
-                    <p className="font-medium text-green-800">{img.precio}</p>
+                    <p className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                    }`}>{img.titulo}</p>
+                    <p className="font-medium text-green-500">{img.precio}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-800 text-center break-words">
+                  <p className={`text-sm font-medium text-center break-words transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -118,10 +134,12 @@ export const Mujer = () => {
 
       {seleccion === "camiseta" && (
         <>
-          <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="grid grid-cols-4 mt-6 gap-4">
             {camisetas.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
+                <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg transition-all duration-300 ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}>
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
@@ -130,10 +148,14 @@ export const Mujer = () => {
                     />
                   </div>
                   <div className="flex justify-around">
-                    <p className="font-medium text-gray-800">{img.titulo}</p>
-                    <p className="font-medium text-green-800">{img.precio}</p>
+                    <p className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                    }`}>{img.titulo}</p>
+                    <p className="font-medium text-green-500">{img.precio}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-800 text-center break-words">
+                  <p className={`text-sm font-medium text-center break-words transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -145,10 +167,12 @@ export const Mujer = () => {
 
       {seleccion === "crop top" && (
         <>
-          <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="grid grid-cols-4 mt-6 gap-4">
             {cropTops.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
+                <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg transition-all duration-300 ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}>
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
@@ -157,10 +181,14 @@ export const Mujer = () => {
                     />
                   </div>
                   <div className="flex justify-around">
-                    <p className="font-medium text-gray-800">{img.titulo}</p>
-                    <p className="font-medium text-green-800">{img.precio}</p>
+                    <p className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                    }`}>{img.titulo}</p>
+                    <p className="font-medium text-green-500">{img.precio}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-800 text-center break-words">
+                  <p className={`text-sm font-medium text-center break-words transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -172,10 +200,12 @@ export const Mujer = () => {
 
       {seleccion === "saco" && (
         <>
-          <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="grid grid-cols-4 mt-6 gap-4">
             {sacos.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
+                <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg transition-all duration-300 ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}>
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
@@ -184,10 +214,14 @@ export const Mujer = () => {
                     />
                   </div>
                   <div className="flex justify-around">
-                    <p className="font-medium text-gray-800">{img.titulo}</p>
-                    <p className="font-medium text-green-800">{img.precio}</p>
+                    <p className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                    }`}>{img.titulo}</p>
+                    <p className="font-medium text-green-500">{img.precio}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-800 text-center break-words">
+                  <p className={`text-sm font-medium text-center break-words transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -199,12 +233,14 @@ export const Mujer = () => {
 
       {seleccion === "Inferior" && (
         <>
-          <div className="relative grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="relative grid grid-cols-4 mt-6 gap-4">
             {opciones3.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
                 <div
                   onClick={() => setSeleccion(img.tipo)}
-                  className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg cursor-pointer"
+                  className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg cursor-pointer transition-all duration-300 hover:shadow-2xl ${
+                    isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                  }`}
                 >
                   <div className="overflow-hidden rounded-t-lg">
                     <img
@@ -213,7 +249,9 @@ export const Mujer = () => {
                       className="w-60 h-80 object-cover rounded-t-lg shadow-md transform duration-300 hover:scale-110"
                     />
                   </div>
-                  <p className="text-sm text-center font-medium text-gray-900 break-words mt-2">
+                  <p className={`text-sm text-center font-medium break-words mt-2 transition-colors duration-300 ${
+                    isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -235,10 +273,12 @@ export const Mujer = () => {
 
       {seleccion === "jean" && (
         <>
-          <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="grid grid-cols-4 mt-6 gap-4">
             {jeans.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
+                <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg transition-all duration-300 ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}>
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
@@ -247,10 +287,14 @@ export const Mujer = () => {
                     />
                   </div>
                   <div className="flex justify-around">
-                    <p className="font-medium text-gray-800">{img.titulo}</p>
-                    <p className="font-medium text-green-800">{img.precio}</p>
+                    <p className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                    }`}>{img.titulo}</p>
+                    <p className="font-medium text-green-500">{img.precio}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-800 text-center break-words">
+                  <p className={`text-sm font-medium text-center break-words transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -262,10 +306,12 @@ export const Mujer = () => {
 
       {seleccion === "pantalon" && (
         <>
-          <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="grid grid-cols-4 mt-6 gap-4">
             {pantalones.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
+                <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg transition-all duration-300 ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}>
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
@@ -274,10 +320,14 @@ export const Mujer = () => {
                     />
                   </div>
                   <div className="flex justify-around">
-                    <p className="font-medium text-gray-800">{img.titulo}</p>
-                    <p className="font-medium text-green-800">{img.precio}</p>
+                    <p className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                    }`}>{img.titulo}</p>
+                    <p className="font-medium text-green-500">{img.precio}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-800 text-center break-words">
+                  <p className={`text-sm font-medium text-center break-words transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -289,10 +339,12 @@ export const Mujer = () => {
 
       {seleccion === "falda" && (
         <>
-          <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="grid grid-cols-4 mt-6 gap-4">
             {faldas.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
+                <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg transition-all duration-300 ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}>
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
@@ -301,10 +353,14 @@ export const Mujer = () => {
                     />
                   </div>
                   <div className="flex justify-around">
-                    <p className="font-medium text-gray-800">{img.titulo}</p>
-                    <p className="font-medium text-green-800">{img.precio}</p>
+                    <p className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                    }`}>{img.titulo}</p>
+                    <p className="font-medium text-green-500">{img.precio}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-800 text-center break-words">
+                  <p className={`text-sm font-medium text-center break-words transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
@@ -316,10 +372,12 @@ export const Mujer = () => {
 
       {seleccion === "short" && (
         <>
-          <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+          <div className="grid grid-cols-4 mt-6 gap-4">
             {shorts.map((img) => (
               <div key={img.id} className="flex mb-6 justify-center">
-                <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-t-lg">
+                <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-t-lg transition-all duration-300 ${
+                  isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+                }`}>
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={img.imagen}
@@ -328,10 +386,14 @@ export const Mujer = () => {
                     />
                   </div>
                   <div className="flex justify-around">
-                    <p className="font-medium text-gray-800">{img.titulo}</p>
-                    <p className="font-medium text-green-800">{img.precio}</p>
+                    <p className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                    }`}>{img.titulo}</p>
+                    <p className="font-medium text-green-500">{img.precio}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-800 text-center break-words">
+                  <p className={`text-sm font-medium text-center break-words transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                  }`}>
                     {img.descripcion}
                   </p>
                 </div>
