@@ -3,19 +3,66 @@ import GoogleIcon from "../assets/svg/GoogleIcon";
 import FacebookIcon from "../assets/svg/FacebookIcon";
 import { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
+import axios from "axios";
 
 interface OnchangeType {
   onChangeForm: () => void;
+  onClose: () => void;
 }
 
-export const Login = ({ onChangeForm }: OnchangeType) => {
+export const Login = ({ onChangeForm, onClose }: OnchangeType) => {
   const { isDarkMode } = useTheme();
 
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+    setError("");
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Formulario enviado");
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await axios.post(
+        "http://localhost:1010/api/usuarios/v1/usuarios/login",
+        {
+          email: formData.email,
+          contraseña: formData.password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("Login exitoso", response.data);
+      
+      // Guardar token en localStorage
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("usuario", response.data.usuario);
+      
+      onClose();
+    } catch (error: any) {
+      console.error(error);
+      setError(
+        error.response?.data?.message || "Error al iniciar sesión"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -83,21 +130,15 @@ export const Login = ({ onChangeForm }: OnchangeType) => {
             <div className="relative">
               <MailIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5" />
               <input
-                id="correo"
-                name="correo"
+                id="email"
+                name="email"
                 type="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="tu@email.com"
                 className={`mt-1 block w-full rounded-md border pl-10 pr-3 py-2 text-sm shadow-sm focus:outline-none focus:border-green-500 focus:ring-green-500 transition-colors duration-300 ${
                   isDarkMode ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-500' : 'bg-white border-gray-300 text-black placeholder-gray-400'
                 }`}
-                onInvalid={(e) =>
-                  (e.target as HTMLInputElement).setCustomValidity(
-                    "Por favor ingresa un correo válido"
-                  )
-                }
-                onInput={(e) =>
-                  (e.target as HTMLInputElement).setCustomValidity("")
-                }
                 required
               />
             </div>
@@ -118,6 +159,8 @@ export const Login = ({ onChangeForm }: OnchangeType) => {
                 id="password"
                 name="password"
                 type={showPassword ? "text" : "password"}
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Tu contraseña"
                 className={`mt-1 block w-full rounded-md border pl-10 pr-10 py-2 text-sm shadow-sm focus:outline-none focus:border-green-500 focus:ring-green-500 transition-colors duration-300 ${
                   isDarkMode ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-500' : 'bg-white border-gray-300 text-black placeholder-gray-400'
@@ -146,11 +189,18 @@ export const Login = ({ onChangeForm }: OnchangeType) => {
             </p>
           </div>
 
+          {error && (
+            <p className="text-red-500 text-sm text-center">{error}</p>
+          )}
+
           <button
             type="submit"
-            className="w-full rounded-md bg-emerald-600 px-6 py-4 cursor-pointer text-white text-xs font-medium hover:bg-green-700 transition duration-300 ease-in-out"
+            disabled={loading}
+            className={`w-full rounded-md bg-emerald-600 px-6 py-4 cursor-pointer text-white text-xs font-medium hover:bg-green-700 transition duration-300 ease-in-out ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            Iniciar sesión
+            {loading ? "Iniciando sesión..." : "Iniciar sesión"}
           </button>
         </form>
 

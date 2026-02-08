@@ -43,9 +43,9 @@ export const LoginRegisterModal = ({ isOpen, onClose }: ModalProps) => {
           x
         </button>
         {isLoginActive ? (
-          <Login onChangeForm={handleChangeForm} />
+          <Login onChangeForm={handleChangeForm} onClose={onClose} />
         ) : (
-          <Register onChangeForm={handleChangeForm} />
+          <Register onChangeForm={handleChangeForm} onClose={onClose} />
         )}
       </div>
     </div>
