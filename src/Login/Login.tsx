@@ -4,6 +4,14 @@ import FacebookIcon from "../assets/svg/FacebookIcon";
 import { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
+
+// Interfaz del payload del token JWT
+interface TokenPayload {
+  sub: string;  // email del usuario
+  iat: number;  // fecha de creación (timestamp)
+  exp: number;  // fecha de expiración (timestamp)
+}
 
 interface OnchangeType {
   onChangeForm: () => void;
@@ -50,9 +58,12 @@ export const Login = ({ onChangeForm, onClose }: OnchangeType) => {
 
       console.log("Login exitoso", response.data);
       
-      // Guardar token en localStorage
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("usuario", response.data.usuario);
+      const token = response.data.token;
+      const decoded = jwtDecode<TokenPayload>(token);
+      
+      // Guardar en sessionStorage
+      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("usuario", JSON.stringify(decoded));
       
       onClose();
     } catch (error: any) {
