@@ -3,6 +3,7 @@ import GoogleIcon from "../assets/svg/GoogleIcon";
 import FacebookIcon from "../assets/svg/FacebookIcon";
 import { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
+import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
@@ -20,6 +21,7 @@ interface OnchangeType {
 
 export const Login = ({ onChangeForm, onClose }: OnchangeType) => {
   const { isDarkMode } = useTheme();
+  const { login } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -61,9 +63,8 @@ export const Login = ({ onChangeForm, onClose }: OnchangeType) => {
       const token = response.data.token;
       const decoded = jwtDecode<TokenPayload>(token);
       
-      // Guardar en sessionStorage
-      sessionStorage.setItem("token", token);
-      sessionStorage.setItem("usuario", JSON.stringify(decoded));
+      // Usar el contexto de autenticación
+      login(token, decoded);
       
       onClose();
     } catch (error: any) {
