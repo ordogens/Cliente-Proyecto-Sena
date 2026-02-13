@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import type { ReactNode } from "react";
 
 interface Usuario {
   sub: string;
@@ -27,7 +28,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     if (storedToken && storedUsuario) {
       const parsedUsuario = JSON.parse(storedUsuario);
-      
+
       // Verificar si el token no ha expirado
       if (parsedUsuario.exp * 1000 > Date.now()) {
         setToken(storedToken);

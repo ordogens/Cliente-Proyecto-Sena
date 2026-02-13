@@ -4,6 +4,7 @@ import {
   UserIcon,
   MailIcon,
   LockIcon,
+  CheckCircle,
 } from "lucide-react";
 import { useState } from "react";
 import GoogleIcon from "../assets/svg/GoogleIcon";
@@ -31,6 +32,8 @@ export const Register = ({ onChangeForm, onClose }: OnchangeType) => {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [registroExitoso, setRegistroExitoso] = useState(false);
+  const [emailRegistrado, setEmailRegistrado] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -48,32 +51,83 @@ export const Register = ({ onChangeForm, onClose }: OnchangeType) => {
     }
 
     setLoading(true);
-    try {
-      const response = await axios
-        .post(
-          "http://localhost:1010/api/usuarios/v1/usuarios",
-          {
-            contraseña: formData.password,
-            email: formData.email,
-            nombre: formData.nombre,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          },
-        )
-        .then((response) => console.log(response.data))
-        .catch((error) => console.error(error));
+    setError(""); // Limpiar errores previos
 
-      console.log("Usuario registrado", response);
-      onClose(); // Cierra el modal después del registro exitoso
+    try {
+      const response = await axios.post(
+        "http://localhost:1010/api/usuarios/v1/usuarios",
+        {
+          contraseña: formData.password,
+          email: formData.email,
+          nombre: formData.nombre,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("Usuario registrado", response.data);
+      setEmailRegistrado(formData.email);
+      setRegistroExitoso(true);
     } catch (error: any) {
-      setError(error.response?.message || "Error al registrar el usuario");
+      console.error(error);
+      const mensaje =
+        error.response?.data?.message ||
+        error.response?.data ||
+        "Error al registrar el usuario";
+      setError(mensaje);
     } finally {
       setLoading(false);
     }
   };
+
+  // Mostrar pantalla de éxito si el registro fue exitoso
+  if (registroExitoso) {
+    return (
+      <div className="flex justify-center items-center fixed inset-0 bg-[rgba(0,0,0,0.719)] bg-opacity-50 z-50">
+        <div
+          className={`w-80 relative p-6 rounded-lg shadow-lg flex flex-col items-center transition-colors duration-300 ${
+            isDarkMode ? "bg-[#111827]" : "bg-white"
+          }`}
+        >
+          <CheckCircle className="w-16 h-16 text-emerald-600 mb-4" />
+          <h2
+            className={`text-xl font-bold mb-2 text-center ${
+              isDarkMode ? "text-white" : "text-gray-800"
+            }`}
+          >
+            ¡Cuenta creada!
+          </h2>
+          <p
+            className={`text-sm text-center mb-4 ${
+              isDarkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
+            Hemos enviado un correo de verificación a:
+          </p>
+          <p className="text-emerald-600 font-medium mb-4 text-center break-all">
+            {emailRegistrado}
+          </p>
+          <p
+            className={`text-sm text-center mb-6 ${
+              isDarkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
+            Por favor revisa tu bandeja de entrada y haz clic en el enlace para
+            verificar tu cuenta.
+          </p>
+          <button
+            onClick={onClose}
+            className="w-full rounded-md bg-emerald-600 px-6 py-3 text-white text-sm font-medium hover:bg-emerald-700 transition-colors cursor-pointer"
+          >
+            Entendido
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center fixed inset-0 bg-[rgba(0,0,0,0.719)] bg-opacity-50 z-50">

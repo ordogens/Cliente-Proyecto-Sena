@@ -17,9 +17,10 @@ interface TokenPayload {
 interface OnchangeType {
   onChangeForm: () => void;
   onClose: () => void;
+  onForgotPassword?: () => void;
 }
 
-export const Login = ({ onChangeForm, onClose }: OnchangeType) => {
+export const Login = ({ onChangeForm, onClose, onForgotPassword }: OnchangeType) => {
   const { isDarkMode } = useTheme();
   const { login } = useAuth();
 
@@ -196,7 +197,10 @@ export const Login = ({ onChangeForm, onClose }: OnchangeType) => {
           </div>
           <div className="flex justify-between">
             <span></span>
-            <p className="text-emerald-600 cursor-pointer hover:text-green-800 transition duration-300 ease-in-out">
+            <p 
+              onClick={onForgotPassword}
+              className="text-emerald-600 cursor-pointer hover:text-green-800 transition duration-300 ease-in-out"
+            >
               ¿Olvidaste tu contraseña?
             </p>
           </div>

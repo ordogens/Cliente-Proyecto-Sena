@@ -9,6 +9,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { Personalizacion } from "./pages/Personalizacion";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { VerificarEmail } from "./pages/VerificarEmail";
+import { RestablecerContrasena } from "./pages/RestablecerContrasena";
 
 export const App = () => {
   return (
@@ -20,6 +22,8 @@ export const App = () => {
             <Routes>
               {/* Rutas públicas */}
               <Route path="/" element={<Home />} />
+              <Route path="/verificar-email" element={<VerificarEmail />} />
+              <Route path="/restablecer-contrasena" element={<RestablecerContrasena />} />
               
               {/* Rutas protegidas */}
               <Route path="/personalizacion" element={
