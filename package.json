@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "4.1.12",
+    "axios": "^1.13.5",
+    "jwt-decode": "^4.0.0",
     "konva": "^10.0.9",
     "lucide-react": "0.542.0",
     "react": "^19.2.0",

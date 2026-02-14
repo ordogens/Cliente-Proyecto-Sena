@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Register } from "../Register/Register";
 import { Login } from "../Login/Login";
+import { ForgotPasswordModal } from "./ForgotPasswordModal";
+import { useTheme } from "../contexts/ThemeContext";
 
 // Definir las props del componente
 interface ModalProps {
@@ -8,21 +10,45 @@ interface ModalProps {
   onClose: () => void;
 }
 
+type FormType = "login" | "register" | "forgotPassword";
+
 export const LoginRegisterModal = ({ isOpen, onClose }: ModalProps) => {
-  const [isLoginActive, setIsLoginActive] = useState(true); // Login por defecto
+  const [activeForm, setActiveForm] = useState<FormType>("login");
+  const { isDarkMode } = useTheme();
 
   if (!isOpen) return null;
 
   const handleChangeForm = () => {
-    setIsLoginActive((prev) => !prev);
+    setActiveForm((prev) => (prev === "login" ? "register" : "login"));
   };
+
+  const handleForgotPassword = () => {
+    setActiveForm("forgotPassword");
+  };
+
+  const handleBackToLogin = () => {
+    setActiveForm("login");
+  };
+
+  // Si está en el modal de recuperar contraseña, mostrarlo directamente
+  if (activeForm === "forgotPassword") {
+    return (
+      <ForgotPasswordModal 
+        onBack={handleBackToLogin} 
+        onClose={onClose} 
+      />
+    );
+  }
 
   // Estilos dinámicos para la X basados en el formulario activo
   const getCloseButtonStyle = () => {
+    const colorStyle = isDarkMode 
+      ? "text-gray-300 hover:text-white" 
+      : "text-gray-600 hover:text-gray-800";
     const baseStyle =
-      "cursor-pointer text-gray-600 absolute z-100 text-xl font-bold hover:text-gray-800 transition-colors duration-200";
+      `cursor-pointer absolute z-100 text-xl font-bold transition-colors duration-300 ${colorStyle}`;
 
-    if (isLoginActive) {
+    if (activeForm === "login") {
       // Estilo para Login - esquina superior derecha
       return `${baseStyle} right-4 top-[-40px]`;
     } else {
@@ -37,10 +63,14 @@ export const LoginRegisterModal = ({ isOpen, onClose }: ModalProps) => {
         <button className={getCloseButtonStyle()} onClick={onClose}>
           x
         </button>
-        {isLoginActive ? (
-          <Login onChangeForm={handleChangeForm} />
+        {activeForm === "login" ? (
+          <Login 
+            onChangeForm={handleChangeForm} 
+            onClose={onClose}
+            onForgotPassword={handleForgotPassword}
+          />
         ) : (
-          <Register onChangeForm={handleChangeForm} />
+          <Register onChangeForm={handleChangeForm} onClose={onClose} />
         )}
       </div>
     </div>

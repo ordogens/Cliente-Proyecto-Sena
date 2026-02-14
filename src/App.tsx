@@ -6,25 +6,55 @@ import { Prendas } from "./visualizadorPrendas/Prendas";
 import { ProductsPage } from "./pages/ProductsPage";
 import { Categoria } from "./lib/helpers/Category";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import { Personalizacion } from "./pages/Personalizacion";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { VerificarEmail } from "./pages/VerificarEmail";
+import { RestablecerContrasena } from "./pages/RestablecerContrasena";
 
 export const App = () => {
   return (
-    <ThemeProvider>
-      <div className="h-screen bg-[#f2f9f7]">
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/personalizacion" element={<Personalizacion />} />
-            <Route path="/catalogo" element={<Catalogo />} />
-            <Route path="/prendas" element={<Prendas />} />
-            <Route path="/catalogo/:sexo" element={<Categoria />} />
-            <Route path="/catalogo/:sexo/:tipo" element={<ProductsPage />} />
-
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <div className="h-screen bg-[#f2f9f7]">
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              {/* Rutas públicas */}
+              <Route path="/" element={<Home />} />
+              <Route path="/verificar-email" element={<VerificarEmail />} />
+              <Route path="/restablecer-contrasena" element={<RestablecerContrasena />} />
+              
+              {/* Rutas protegidas */}
+              <Route path="/personalizacion" element={
+                <ProtectedRoute>
+                  <Personalizacion />
+                </ProtectedRoute>
+              } />
+              <Route path="/catalogo" element={
+                <ProtectedRoute>
+                  <Catalogo />
+                </ProtectedRoute>
+              } />
+              <Route path="/prendas" element={
+                <ProtectedRoute>
+                  <Prendas />
+                </ProtectedRoute>
+              } />
+              <Route path="/catalogo/:sexo" element={
+                <ProtectedRoute>
+                  <Categoria />
+                </ProtectedRoute>
+              } />
+              <Route path="/catalogo/:sexo/:tipo" element={
+                <ProtectedRoute>
+                  <ProductsPage />
+                </ProtectedRoute>
+              } />
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </ThemeProvider>
+    </AuthProvider>
   );
 };

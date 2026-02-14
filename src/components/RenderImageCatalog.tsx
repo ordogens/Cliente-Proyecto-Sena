@@ -1,3 +1,5 @@
+import { useTheme } from "../contexts/ThemeContext";
+
 interface Image {
     id: number;
     imagen: string;
@@ -7,12 +9,16 @@ interface Image {
 }
 
 export const RenderImageCatalog = ({ ropa  }: { ropa: Image[] }) => {
+  const { isDarkMode } = useTheme();
+  
   return (
     <>
-      <div className="grid grid-cols-4 mt-6 gap-4 bg-[#f2f9f7]">
+      <div className="grid grid-cols-4 mt-6 gap-4">
         {ropa.map((img: Image) => (
           <div key={img.id} className="flex mb-6 justify-center">
-            <div className="flex flex-col w-60 h-[380px] shadow-2xl bg-[#f2f9f7] rounded-lg">
+            <div className={`flex flex-col w-60 h-[380px] shadow-2xl rounded-lg transition-all duration-300 ${
+              isDarkMode ? 'bg-[#232d4a]' : 'bg-white'
+            }`}>
               <div className="overflow-hidden rounded-lg">
                 <img
                   src={img.imagen}
@@ -21,10 +27,14 @@ export const RenderImageCatalog = ({ ropa  }: { ropa: Image[] }) => {
                 />
               </div>
               <div className="flex justify-around">
-                <p className="font-medium text-gray-800">{img.titulo}</p>
-                <p className="font-medium text-green-800">{img.precio}</p>
+                <p className={`font-medium transition-colors duration-300 ${
+                  isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                }`}>{img.titulo}</p>
+                <p className="font-medium text-green-500">{img.precio}</p>
               </div>
-              <p className="font-bold text-lg text-gray-800 flex justify-start pl-4 break-words">
+              <p className={`font-bold text-lg flex justify-start pl-4 break-words transition-colors duration-300 ${
+                isDarkMode ? 'text-gray-300' : 'text-gray-800'
+              }`}>
                 {img.descripcion}
               </p>
             </div>
