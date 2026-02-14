@@ -10,7 +10,11 @@ interface Props {
   color?: string; // 👈 nueva prop
 }
 
-export const ShirtDesigner = ({ view = "front", file, color = "#ffffff" }: Props) => {
+export const ShirtDesigner = ({
+  view = "front",
+  file,
+  color = "#ffffff",
+}: Props) => {
   // 1. Cargar el mockup de la camiseta según la vista seleccionada
   const [mockup] = useImage(`/mockups/${view}.png`);
 
@@ -59,7 +63,7 @@ export const ShirtDesigner = ({ view = "front", file, color = "#ffffff" }: Props
         }}
       >
         {/** Layer = capa donde pintar todo */}
-        <Layer >
+        <Layer>
           {/** 7. Pintar la camiseta (mockup) */}
           <KonvaImage
             image={mockup}
@@ -69,6 +73,7 @@ export const ShirtDesigner = ({ view = "front", file, color = "#ffffff" }: Props
             fill={color}
           />
 
+          {/* OJO parte que toca revisar por que no esta funcionando bien */}
           {/** 8. Si el usuario subió una imagen, pintarla encima */}
           {designImage && (
             <>
@@ -85,7 +90,6 @@ export const ShirtDesigner = ({ view = "front", file, color = "#ffffff" }: Props
                   if (!transformerRef.current || !designRef.current) return;
                   transformerRef.current.nodes([designRef.current]);
                   transformerRef.current.getLayer()?.batchDraw();
-
                 }}
               />
 

@@ -33,4 +33,13 @@ export const COLORS: string[] = [
   "#DC7633",
 ];
 
+// types/PersonalizationOption.ts
+export type PersonalizationOption =
+  | "shirt"
+  | "upload"
+  | "text"
+  | "emoji"
+  | "effects";
+
+
 
