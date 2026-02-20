@@ -14,6 +14,14 @@ interface TokenPayload {
   exp: number;  // fecha de expiración (timestamp)
 }
 
+// Interfaz para la respuesta del login
+interface LoginResponse {
+  token: string;
+  id: number;
+  usuario: string;
+  message: string;
+}
+
 interface OnchangeType {
   onChangeForm: () => void;
   onClose: () => void;
@@ -61,11 +69,11 @@ export const Login = ({ onChangeForm, onClose, onForgotPassword }: OnchangeType)
 
       console.log("Login exitoso", response.data);
       
-      const token = response.data.token;
-      const decoded = jwtDecode<TokenPayload>(token);
+      const data = response.data as LoginResponse;
+      const decoded = jwtDecode<TokenPayload>(data.token);
       
-      // Usar el contexto de autenticación
-      login(token, decoded);
+      // Usar el contexto de autenticación (incluir el ID del usuario)
+      login(data.token, { ...decoded, id: data.id });
       
       onClose();
     } catch (error: any) {

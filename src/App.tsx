@@ -11,6 +11,7 @@ import { Personalizacion } from "./pages/Personalizacion";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { VerificarEmail } from "./pages/VerificarEmail";
 import { RestablecerContrasena } from "./pages/RestablecerContrasena";
+import { AIChatBubble } from "./components/AIChatBubble";
 
 export const App = () => {
   return (
@@ -52,6 +53,7 @@ export const App = () => {
                 </ProtectedRoute>
               } />
             </Routes>
+            <AIChatBubble />
           </BrowserRouter>
         </div>
       </ThemeProvider>
